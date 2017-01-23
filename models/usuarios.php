@@ -1,8 +1,8 @@
 <?php 
 require_once("mysql.php");
 
-class Cliente extends Mysql{
-	public function add($datos)
+class Usuario extends Mysql{
+	public function add_user($datos)
      {
      echo $sql = "INSERT INTO cencel.usuarios "
                 . "(nombre, direccion, poblacion, codigo_postal, telefono1, telefono2, email, rfc, login, pass, perfil, precio_asignado, almacen, tipo_cliente)" 
@@ -27,6 +27,17 @@ class Cliente extends Mysql{
     public function get_users(){
     	echo $sql = "SELECT email from usuarios";
     	return $this->query($sql);
+    }
+
+    public function get_id($id){
+        $sql = "select * from usuarios "
+                . "where id ={$id};";
+        return $this->query($sql);
+    }
+
+    public function search($data){
+           echo $sql = "select * from cencel.usuarios where nombre like '%{$data}%';";
+        return $this->query($sql);
     }
 }
 ?>
