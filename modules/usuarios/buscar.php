@@ -41,14 +41,64 @@
     
   </div>
 
-	<form action="" method="POST">
-		<div class="ui action input">
-			<input type="text" name="usuarios" required placeholder="Nombre Usuario">			
-			<button class="ui icon button">
-				<i class="search icon"></i>
+	<div class="ui four column centered grid">
+		<div class="column">
+			<form action="" method="POST">
+		<div class="ui big fluid category search">
+			<div class="ui icon input">
+				<input type="text" class="prompt" name="usuarios" placeholder="Buscar Usuario...">
+			</div>
+			<button class="circular ui teal icon button">
+				<i class="icon search"></i>
 			</button>
 		</div>
-	</form>
+	</form>		
+		</div>
+		<div class="four column centered row">
+			<div class="column">b</div>
+			<div class="column">c</div>
+		</div>
+	</div>
+	
+	<!-- Tabla de Usuarios -->
+
+	<table class="ui striped table">
+		<thead>
+			<tr>
+				<th>Clave</th>
+				<th>Nombre</th>
+				<th>Direccion</th>
+				<th>Poblacion</th>
+				<th>CP</th>
+				<th>Telefono</th>
+				<th>Email</th>
+				<th>RFC</th>
+				<th>Usuario</th>
+				<th>Nivel de Acceso</th>
+				<th>Precio Asignado</th>
+				<th>Almacen</th>
+			</tr>
+		</thead>
+		<tbody>
+		<?php while($row = mysqli_fetch_array($usuarios)){ ?>
+			<tr>
+				<td><?php echo $row['id_usuario']; ?></td>
+				<td><?php echo $row['nombre']; ?></td>
+				<td><?php echo $row['direccion']; ?></td>
+				<td><?php echo $row['poblacion']; ?></td>
+				<td><?php echo $row['codigo_postal']; ?></td>
+				<td><?php echo $row['telefono1']; ?></td>
+				<td><?php echo $row['email']; ?></td>
+				<td><?php echo $row['rfc']; ?></td>
+				<td><?php echo $row['login']; ?></td>
+				<td><?php echo $row['precio_asignado']; ?></td>
+				<td><?php echo $row['precio_asignado']; ?></td>
+				<td><?php echo $row['almacen']; ?></td>
+			</tr>
+			<?php } ?>
+		</tbody>
+	</table>
+
 	<div class="results">
 		<?php while($row = mysqli_fetch_array($usuarios)){ ?>
 			<span><?php echo $row['nombre'];  ?></span>
