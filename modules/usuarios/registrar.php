@@ -39,27 +39,7 @@
 
 
 <!-- Main Menu -->
-<div class="ui menu">
-  <a href="#" class="item">Home</a>
-  <div id="user-select" class="ui pointing dropdown link item">
-    <span class="text">Usuarios</span>
-    <i class="dropdown icon"></i>
-    <div class="menu">
-      <div class="item">Registrar</div>
-      <div class="item">Buscar</div>
-      <div class="item">
-        <i class="dropdown icon"></i>
-        <span>Alterar</span>
-        <div class="menu">
-          <div class="item">Datos Generales</div>
-          <div class="item">Login/Password</div>
-        </div>
-      </div>
-      <div class="item">Bloquear/Desbloquear</div>
-      <div class="item">Directorio</div>
-    </div>
-  </div>
-</div>
+<?php require_once("../../templates/menu.php"); ?>
 
 
 	

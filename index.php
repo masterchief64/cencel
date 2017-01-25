@@ -12,34 +12,11 @@
 
 </head>
 <body>
+<?php require_once("templates/menu.php"); ?>
 	<!-- Main Menu -->
 
+  
 
-	<!-- Main Menu -->
-<div class="ui menu">
-    <a class="item">
-      Home
-    </a>
-    <a class="ui dropdown item" id="user-select">
-      Usuarios
-      <i class="dropdown icon"></i>
-      <div class="menu">
-      <div class="item">Registrar</div>
-      <div class="item">Buscar</div>
-        <div class="item">
-          <i class="dropdown icon"></i>
-          <span class="text">Alterar</span>
-          <div class="menu">
-            <div class="item">Datos Generales</div>
-            <div class="item">Login/Password</div>
-          </div>
-        </div>
-        <div class="item">Bloquear/Desbloquear</div>
-        <div class="item">Directorio</div>
-      </div>
-    </a>
-    
-  </div>
 
   <!-- Login Form -->
   <div class="ui middle aligned center aligned grid">
@@ -87,6 +64,7 @@
 
 <script type="text/javascript">
   $('#user-select').dropdown();
+  $('#almacen-select').dropdown();
 </script>
 
 

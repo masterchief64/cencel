@@ -19,4 +19,13 @@ create table usuarios(
 	almacen varchar(50) not null,
 	tipo_cliente varchar(30) not null,
 	primary key(id_usuario)
-);
+)ENGINE=InnoDb;
+
+create table almacenes(
+	id_almacen tinyint auto_increment,
+	almacen varchar(50),
+	primary key(id_almacen)
+)ENGINE=InnoDb;
+
+insert into almacenes(almacen) values('San Juan Del Rio');
+insert into almacenes(almacen) values('Queretaro');

@@ -1,39 +1,51 @@
 <?php include("../../models/usuarios.php"); ?>
-<?php
-	if(isset($_POST['usuarios'])){
-		$data_name = $_POST['usuarios'];
-		$Usuario = new Usuario();
-		$usuarios = $Usuario->search($data_name);
-	} 
+<?php include("../../models/almacenes.php"); ?>
+<?php 
+	$Usuario = new Usuario();
+	$usuarios = $Usuario->get_users();
+	$Almacen = new Almacen();
+	$almacenes = $Almacen->get_almacenes();
  ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Buscar</title>
+	<title>Directorio</title>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/semantic.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/themes/material/assets/fonts/icons.woff">
+  <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/semantic.js"></script>
 </head>
+<!-- Main Menu -->
+<?php require_once("../../templates/menu.php") ?>
 <body>
-<!-- Menu -->
-<?php require_once("../../templates/menu.php"); ?>
-
 	<div class="ui four column centered grid">
 		<div class="column">
-			<form action="" method="POST">
-		<div class="ui big fluid category search">
-			<div class="ui icon input">
-				<input type="text" class="prompt" name="usuarios" placeholder="Buscar Usuario...">
-			</div>
-			<button class="circular ui teal icon button">
-				<i class="icon search"></i>
-			</button>
-		</div>
-	</form>		
+			<div id="almacen-select" class="ui floating dropdown labeled green icon button">
+				<i class="filter icon"></i>
+				<span class="text">Filtrar Almacenes</span>
+				<div class="menu">
+					<div class="ui icon search input">
+						<i class="search icon"></i>
+						<input type="text" placeholder="Buscar">
+					</div>
+					<div class="divider"></div>
+					<div class="header">
+						<i class="tags icon"></i>
+						Tag Label
+					</div>
+					<div class="scrolling menu">
+						<?php while($row = mysqli_fetch_array($almacenes)){ ?>
+						<div class="item">
+							<div class="ui red empty circular label"></div>
+							<?php echo $row['almacen']; ?>
+						</div>
+							<?php } ?>
+					</div>
+				</div>
+			</div>	
 		</div>
 	</div>
-	
-	<!-- Tabla de Usuarios -->
 
 	<table class="ui striped table">
 		<thead>
@@ -72,19 +84,8 @@
 		</tbody>
 	</table>
 
-	<div class="results">
-		<?php while($row = mysqli_fetch_array($usuarios)){ ?>
-			<span><?php echo $row['nombre'];  ?></span>
-			<?php } ?>		
-	</div>
+	<script type="text/javascript">
+  $('#user-select').dropdown({transition: 'fade'});
+</script>
 </body>
 </html>
-
-
-logos empresas de tecnologia
-
-MegaBit
-
-HelpSoft
-HelpTI
-GoTi
